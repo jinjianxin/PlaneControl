@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mySwitch="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" 
+    android:background="@drawable/background"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/ail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="AIL"
+                    android:layout_marginTop="-15dp"
+                     />
+
+                <com.appscumen.example.MySwitch
+                    android:id="@+id/pickup3"
+                    style="@style/mySwitchStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    mySwitch:backgroundMask="@drawable/smask_background_copy"
+                    mySwitch:leftBackground="@drawable/sleft_background_copy"
+                    mySwitch:pushStyle="true"
+                    mySwitch:rightBackground="@drawable/sright_background_copy"
+                    mySwitch:textOff="Pepsi"
+                    mySwitch:textOn="Coke"
+                    mySwitch:textOnThumb="false"
+                    mySwitch:thumb="@drawable/stoggle_copy"
+                    mySwitch:thumbExtraMovement="23dp"
+                    mySwitch:track="@drawable/sgroove_copy"
+                    mySwitch:trackTextPadding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/ail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="ELE"
+                    android:layout_marginTop="-15dp"
+                     />
+
+                <com.appscumen.example.MySwitch
+                    android:id="@+id/pickup3"
+                    style="@style/mySwitchStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    mySwitch:backgroundMask="@drawable/smask_background_copy"
+                    mySwitch:leftBackground="@drawable/sleft_background_copy"
+                    mySwitch:pushStyle="true"
+                    mySwitch:rightBackground="@drawable/sright_background_copy"
+                    mySwitch:textOff="Pepsi"
+                    mySwitch:textOn="Coke"
+                    mySwitch:textOnThumb="false"
+                    mySwitch:thumb="@drawable/stoggle_copy"
+                    mySwitch:thumbExtraMovement="23dp"
+                    mySwitch:track="@drawable/sgroove_copy"
+                    mySwitch:trackTextPadding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/ail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="THR"
+                    android:layout_marginTop="-15dp"
+                     />
+
+                <com.appscumen.example.MySwitch
+                    android:id="@+id/pickup3"
+                    style="@style/mySwitchStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    mySwitch:backgroundMask="@drawable/smask_background_copy"
+                    mySwitch:leftBackground="@drawable/sleft_background_copy"
+                    mySwitch:pushStyle="true"
+                    mySwitch:rightBackground="@drawable/sright_background_copy"
+                    mySwitch:textOff="Pepsi"
+                    mySwitch:textOn="Coke"
+                    mySwitch:textOnThumb="false"
+                    mySwitch:thumb="@drawable/stoggle_copy"
+                    mySwitch:thumbExtraMovement="23dp"
+                    mySwitch:track="@drawable/sgroove_copy"
+                    mySwitch:trackTextPadding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/ail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="RUD"
+                    android:layout_marginTop="-15dp"
+                     />
+
+                <com.appscumen.example.MySwitch
+                    android:id="@+id/pickup3"
+                    style="@style/mySwitchStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    mySwitch:backgroundMask="@drawable/smask_background_copy"
+                    mySwitch:leftBackground="@drawable/sleft_background_copy"
+                    mySwitch:pushStyle="true"
+                    mySwitch:rightBackground="@drawable/sright_background_copy"
+                    mySwitch:textOff="Pepsi"
+                    mySwitch:textOn="Coke"
+                    mySwitch:textOnThumb="false"
+                    mySwitch:thumb="@drawable/stoggle_copy"
+                    mySwitch:thumbExtraMovement="23dp"
+                    mySwitch:track="@drawable/sgroove_copy"
+                    mySwitch:trackTextPadding="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/ail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="CH5"
+                    android:layout_marginTop="-15dp" />
+
+                <com.appscumen.example.MySwitch
+                    android:id="@+id/pickup3"
+                    style="@style/mySwitchStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    mySwitch:backgroundMask="@drawable/smask_background_copy"
+                    mySwitch:leftBackground="@drawable/sleft_background_copy"
+                    mySwitch:pushStyle="true"
+                    mySwitch:rightBackground="@drawable/sright_background_copy"
+                    mySwitch:textOff="Pepsi"
+                    mySwitch:textOn="Coke"
+                    mySwitch:textOnThumb="false"
+                    mySwitch:thumb="@drawable/stoggle_copy"
+                    mySwitch:thumbExtraMovement="23dp"
+                    mySwitch:track="@drawable/sgroove_copy"
+                    mySwitch:trackTextPadding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/ail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="CH6" 
+                    android:layout_marginTop="-15dp"/>
+
+                <com.appscumen.example.MySwitch
+                    android:id="@+id/pickup3"
+                    style="@style/mySwitchStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    mySwitch:backgroundMask="@drawable/smask_background_copy"
+                    mySwitch:leftBackground="@drawable/sleft_background_copy"
+                    mySwitch:pushStyle="true"
+                    mySwitch:rightBackground="@drawable/sright_background_copy"
+                    mySwitch:textOff="Pepsi"
+                    mySwitch:textOn="Coke"
+                    mySwitch:textOnThumb="false"
+                    mySwitch:thumb="@drawable/stoggle_copy"
+                    mySwitch:thumbExtraMovement="23dp"
+                    mySwitch:track="@drawable/sgroove_copy"
+                    mySwitch:trackTextPadding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/ail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="CH7"
+                    android:layout_marginTop="-15dp" />
+
+                <com.appscumen.example.MySwitch
+                    android:id="@+id/pickup3"
+                    style="@style/mySwitchStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    mySwitch:backgroundMask="@drawable/smask_background_copy"
+                    mySwitch:leftBackground="@drawable/sleft_background_copy"
+                    mySwitch:pushStyle="true"
+                    mySwitch:rightBackground="@drawable/sright_background_copy"
+                    mySwitch:textOff="Pepsi"
+                    mySwitch:textOn="Coke"
+                    mySwitch:textOnThumb="false"
+                    mySwitch:thumb="@drawable/stoggle_copy"
+                    mySwitch:thumbExtraMovement="23dp"
+                    mySwitch:track="@drawable/sgroove_copy"
+                    mySwitch:trackTextPadding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/ail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="CH8"
+                    android:layout_marginTop="-15dp" />
+
+                <com.appscumen.example.MySwitch
+                    android:id="@+id/pickup3"
+                    style="@style/mySwitchStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    mySwitch:backgroundMask="@drawable/smask_background_copy"
+                    mySwitch:leftBackground="@drawable/sleft_background_copy"
+                    mySwitch:pushStyle="true"
+                    mySwitch:rightBackground="@drawable/sright_background_copy"
+                    mySwitch:textOff="Pepsi"
+                    mySwitch:textOn="Coke"
+                    mySwitch:textOnThumb="false"
+                    mySwitch:thumb="@drawable/stoggle_copy"
+                    mySwitch:thumbExtraMovement="23dp"
+                    mySwitch:track="@drawable/sgroove_copy"
+                    mySwitch:trackTextPadding="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.appscumen.example.MySwitch
+                android:id="@+id/pickup3"
+                style="@style/mySwitchStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="30dp"
+                android:gravity="center"
+                mySwitch:backgroundMask="@drawable/smask_background_copy"
+                mySwitch:leftBackground="@drawable/sleft_background_copy"
+                mySwitch:pushStyle="true"
+                mySwitch:rightBackground="@drawable/sright_background_copy"
+                mySwitch:textOff="Pepsi"
+                mySwitch:textOn="Coke"
+                mySwitch:textOnThumb="false"
+                mySwitch:thumb="@drawable/stoggle_copy"
+                mySwitch:thumbExtraMovement="23dp"
+                mySwitch:track="@drawable/sgroove_copy"
+                mySwitch:trackTextPadding="2dp"
+                 />
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="svaeModel" 
+                 android:gravity="center"
+                 android:background="@drawable/foot_news"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
