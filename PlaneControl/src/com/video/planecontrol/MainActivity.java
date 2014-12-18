@@ -46,14 +46,13 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	private ControlView m_rightControl = null;
 	private Timer mTimer = null;	
 	private Button m_menu = null;
-	private int m_chanel1Value = 50;
-	private int m_chanel2Value = 50;
-	private int m_chanel4Value = 50;
-	private int m_chanel3Value = 50;
-	private Timer testTimer = null;
-	
-	private TextView testText = null;
-	private Handler testHandler = null;
+	private int m_chanel1Value = 34;
+	private int m_chanel2Value = 34;
+	private int m_chanel4Value = 34;
+	private int m_chanel3Value = 34;
+	//private Timer testTimer = null;
+	//private TextView testText = null;
+	//private Handler testHandler = null;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,7 +167,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			public void valueChange(int x, int y) {
 				// TODO Auto-generated method stub
 			
-				BtLog.logOutPut("right");
+				//BtLog.logOutPut("right");
 				
 				if(y<0)
 				{
@@ -202,6 +201,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			}
 		});
         
+        /*
         testText = (TextView) findViewById(R.id.testText);
         
         testHandler = new Handler()
@@ -211,12 +211,12 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
         		// TODO Auto-generated method stub
         		super.handleMessage(msg);
         		
-        		BtLog.logOutPut(""+msg.arg1);
+        		//BtLog.logOutPut(""+msg.arg1);
         		testText.setText(String.valueOf( msg.arg1));
         	
         		
         	}
-        };
+        };*/
         
     }
 
@@ -242,11 +242,11 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			m_chanel2Value =0;
 		}
 		
-		m_chanel1Value = 50+m_chanel1Value/2;
-		m_chanel2Value = 50+m_chanel2Value/2;
+		m_chanel1Value = 25+m_chanel1Value/4;
+		m_chanel2Value = 25+m_chanel2Value/4;
 		
-		BtLog.logOutPut("m_chanel1Value = "+m_chanel1Value);
-	//	BtLog.logOutPut("m_chanel2Value = "+m_chanel2Value);
+		//BtLog.logOutPut("m_chanel1Value = "+m_chanel1Value);
+		//BtLog.logOutPut("m_chanel2Value = "+m_chanel2Value);
 		
 		sendData();
 		
@@ -275,8 +275,11 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		{
 			m_chanel3Value =0;
 		}
-		m_chanel3Value = 50+m_chanel3Value/2;
-		m_chanel4Value = 50+m_chanel4Value/2;
+		m_chanel3Value = 25+m_chanel3Value/4;
+		m_chanel4Value = 25+m_chanel4Value/4;
+		
+		//BtLog.logOutPut("m_chanel3Value = "+m_chanel3Value);
+		//BtLog.logOutPut("m_chanel4Value = "+m_chanel4Value);
 	
 		sendData();	
     }
@@ -353,11 +356,12 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			mTimer = null;
 		}
 		
+		/*
 		if(testTimer!=null)
 		{
 			testTimer.cancel();
 			testTimer = null;
-		}
+		}*/
 	}
 	
 	public class MyThread extends Thread {
@@ -376,7 +380,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 				
 				ReceiverThread thread = new ReceiverThread(socket);
 				thread.start();
-				
+				/*
 				testTimer = new Timer();
 				testTimer.schedule(new TimerTask() {
 					
@@ -392,7 +396,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 						
 					}
 				}, 5000,2000);
-				
+				*/
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -409,7 +413,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		           
 		            		String serverHost = "192.168.16.1";
 		    				int serverPort = 1025;
-		    				//BtLog.logOutPut(buffer);
+		    				BtLog.logOutPut(buffer);
 		    				try {
 								MyThread.this.socket.send(serverHost, serverPort, buffer.getBytes());
 							} catch (IOException e) {
@@ -419,7 +423,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		            	}
 		            	else if(msg.arg1 ==2)
 		            	{
-		            		Bundle bundle = msg.getData();
+		            	/*	Bundle bundle = msg.getData();
 		            		String buffer=  bundle.getString("value");
 		           
 		            		String serverHost = "192.168.16.1";
@@ -431,6 +435,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
+							*/
 		            	}
 		            }  
 		        };  
@@ -480,12 +485,30 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 
 		
 		
+		/*BtLog.logOutPut("m_chanel1Value = "+m_chanel1Value);
+		BtLog.logOutPut("m_chanel2Value = "+m_chanel2Value);
+		BtLog.logOutPut("m_chanel3Value = "+m_chanel3Value);
+		BtLog.logOutPut("m_chanel4Value = "+m_chanel4Value);
+		
+		
+		m_chanel1Value= 40 ;
+		m_chanel2Value= 40 ;
+		m_chanel3Value= 40 ;
+		m_chanel4Value= 40 ;
+		
+		BtLog.logOutPut("m_chanel1Value = "+m_chanel1Value);
+		BtLog.logOutPut("m_chanel2Value = "+m_chanel2Value);
+		BtLog.logOutPut("m_chanel3Value = "+m_chanel3Value);
+		BtLog.logOutPut("m_chanel4Value = "+m_chanel4Value);*/
+		
+		
 		DecimalFormat dig = new DecimalFormat("000");
 
+	
 		StringBuilder builder = new StringBuilder();
 		builder.append(dig.format(m_chanel1Value) + dig.format(m_chanel2Value) + dig.format(m_chanel3Value)
-				+ dig.format(m_chanel4Value)+dig.format(0) + dig.format(0) + dig.format(0)
-				+ dig.format(0)+dig.format(0));
+				+ dig.format(m_chanel4Value)+dig.format(40) + dig.format(40) + dig.format(40)
+				+ dig.format(40));
 
 		Message msg = new Message();
 		msg.arg1 =1;
@@ -497,6 +520,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		m_handler.sendMessage(msg);
 	}
 	
+	/*
 	public void sendData(int arg1,int arg2,int arg3,int arg4,int arg5,int arg6,int arg7,int arg8)
 	{
 		
@@ -515,6 +539,6 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		msg.setData(bundle);
 		
 		m_handler.sendMessage(msg);
-	}
+	} */
 	
 }
