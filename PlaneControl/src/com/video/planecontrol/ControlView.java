@@ -31,12 +31,11 @@ public class ControlView extends View {
 
 	public interface OrientationListener {
 		void back();
-		void valueChange(int x,int y);
+		void valueChange(int x, int y);
 
 	}
-	
-	public void setBack(boolean back)
-	{
+
+	public void setBack(boolean back) {
 		this.isBack = back;
 	}
 
@@ -77,37 +76,48 @@ public class ControlView extends View {
 		paint.setColor(Color.RED);
 		canvas.drawBitmap(b, this.getWidth() / 2 - bgWidth, this.getHeight()
 				/ 2 - bgHeight, paint);
-		
-		/*
-		paint.setStyle(Paint.Style.STROKE);
-		paint.setStrokeWidth(5); 
 
-		canvas.drawCircle(this.getWidth() / 2 , this.getHeight()
-				/ 2, 200, paint);*/
-		
+		/*
+		 * paint.setStyle(Paint.Style.STROKE); paint.setStrokeWidth(5);
+		 * 
+		 * canvas.drawCircle(this.getWidth() / 2 , this.getHeight() / 2, 200,
+		 * paint);
+		 */
+
 		Bitmap controlBitmap = BitmapFactory.decodeResource(getResources(),
 				R.drawable.movepoint);
 
 		centerWidth = controlBitmap.getWidth() / 2;
 		centerHeight = controlBitmap.getHeight() / 2;
 
+		if(tmpy<-130 && tmpy<=-156)
+		{
+			tmpy = -156;
+		}
+		
+		if(tmpy>170 && tmpy>=208)
+		{
+			tmpy = 188;
+		}
+		
 		canvas.drawBitmap(controlBitmap, this.getWidth() / 2 - centerWidth
 				+ tmpx, this.getHeight() / 2 - centerHeight + tmpy, paint);
-		
-		canvas.drawCircle(this.getWidth() / 2 
-				+ tmpx, this.getHeight() / 2+ tmpy, 5, paint);
-	
-		centerPoint = new Point( this.getWidth() / 2 , this.getHeight()
-				/ 2);
-		topPoint = new Point(this.getWidth() / 2 , this.getHeight()
-				/ 2 -bgHeight);
 
-		Point topPoint1 = new Point(this.getWidth() / 2 +bgHeight, this.getHeight()
-				/ 2);
-		
-		//canvas.drawLine(centerPoint.x,centerPoint.y , topPoint.x	, topPoint.y, paint);
-		//canvas.drawLine(centerPoint.x,centerPoint.y , topPoint1.x	, topPoint1.y, paint);
-		
+		canvas.drawCircle(this.getWidth() / 2 + tmpx, this.getHeight() / 2
+				+ tmpy, 5, paint);
+
+		centerPoint = new Point(this.getWidth() / 2, this.getHeight() / 2);
+		topPoint = new Point(this.getWidth() / 2, this.getHeight() / 2
+				- bgHeight);
+
+		Point topPoint1 = new Point(this.getWidth() / 2 + bgHeight,
+				this.getHeight() / 2);
+
+		// canvas.drawLine(centerPoint.x,centerPoint.y , topPoint.x ,
+		// topPoint.y, paint);
+		// canvas.drawLine(centerPoint.x,centerPoint.y , topPoint1.x ,
+		// topPoint1.y, paint);
+
 	}
 
 	@Override
@@ -122,64 +132,15 @@ public class ControlView extends View {
 		// TODO Auto-generated method stub
 		int action = event.getAction();
 		switch (action) {
-		case MotionEvent.ACTION_UP: {			
-		/*	Point endPoint = new Point(this.getWidth() / 2 
-					+ tmpx, this.getHeight() / 2+ tmpy);
+		case MotionEvent.ACTION_UP: {
+
+/*			tmpx = 0;
+			tmpy = 0;
+			mOrientationListener.back();
+			invalidate();*/
 			
-			Point point1 = new Point(topPoint.x - centerPoint.x, topPoint.y
-					- centerPoint.y);
-			Point point2 = new Point(endPoint.x - centerPoint.x, endPoint.y
-					- centerPoint.y);
+			mOrientationListener.back();
 
-			double v1 = (point1.x * point2.x) + (point1.y * point2.y);
-			double ma_val = Math
-					.sqrt(point1.x * point1.x + point1.y * point1.y);
-			double mb_val = Math
-					.sqrt(point2.x * point2.x + point2.y * point2.y);
-			double cosM = v1 / (ma_val * mb_val);
-
-			double angleAMB = Math.acos(cosM) * 180 / 3.14; 
-
-			BtLog.logOutPut("angleAMB = " + angleAMB);
-		//	BtLog.logOutPut("cosm = "+cosM);*/
-			
-			if (isBack) {
-				tmpx = 0;
-				tmpy = 0;
-				
-				mOrientationListener.back();
-				
-				invalidate();
-			} 
-			/*
-			if (angleAMB > 170 && angleAMB < 185) {
-				mOrientationListener.bottom();
-			} else {
-
-				if (point2.x > 0) {
-					if (angleAMB > 0 && angleAMB < 20.0f) {
-						mOrientationListener.top();
-					} else if (angleAMB > 20.0f && angleAMB < 75.0f) {
-						mOrientationListener.topRight();
-					} else if (angleAMB >= 75.0f && angleAMB <= 100.0f) {
-						mOrientationListener.right();
-					} else if (angleAMB > 100.f && angleAMB <= 150.0f) {
-						mOrientationListener.bottomRight();
-					}
-				} else {
-					if (angleAMB > 120 && angleAMB < 150) {
-						mOrientationListener.bottomLeft();
-					}
-					else if(angleAMB>80 && angleAMB<120)
-					{
-						mOrientationListener.left();
-					}
-					else if(angleAMB>40 && angleAMB<80)
-					{
-						mOrientationListener.topLeft();
-					}
-				}
-			}*/
 		}
 			break;
 		case MotionEvent.ACTION_DOWN:
@@ -194,14 +155,12 @@ public class ControlView extends View {
 
 			tmpx = cx;
 			tmpy = cy;
-			
+
 			ParseData();
 
 			if (d >= 175) {
 				return true;
 			}
-
-			// this.getWidth()/2-centerWidth+tmpx,this.getHeight()/2-centerHeight+tmpy
 
 			invalidate();
 
@@ -211,67 +170,29 @@ public class ControlView extends View {
 		return super.onTouchEvent(event);
 	}
 
-	private void ParseData()
-	{
-		
-		Point endPoint = new Point(this.getWidth() / 2 
-				+ tmpx, this.getHeight() / 2+ tmpy);
-		
-		int x = endPoint.x -centerPoint.x;
-		int y  =endPoint.y -centerPoint.y;
+	private void ParseData() {
+
+		Point endPoint = new Point(this.getWidth() / 2 + tmpx, this.getHeight()
+				/ 2 + tmpy);
+
+		int x = endPoint.x - centerPoint.x;
+		int y = endPoint.y - centerPoint.y;
 
 		mOrientationListener.valueChange(x, y);
-		
-		
-		/*
-		Point endPoint = new Point(this.getWidth() / 2 
-				+ tmpx, this.getHeight() / 2+ tmpy);
-		
-		Point point1 = new Point(topPoint.x - centerPoint.x, topPoint.y
-				- centerPoint.y);
-		Point point2 = new Point(endPoint.x - centerPoint.x, endPoint.y
-				- centerPoint.y);
-
-		double v1 = (point1.x * point2.x) + (point1.y * point2.y);
-		double ma_val = Math
-				.sqrt(point1.x * point1.x + point1.y * point1.y);
-		double mb_val = Math
-				.sqrt(point2.x * point2.x + point2.y * point2.y);
-		double cosM = v1 / (ma_val * mb_val);
-
-		double angleAMB = Math.acos(cosM) * 180 / 3.14; 
-
-		BtLog.logOutPut("angleAMB = " + angleAMB);
-	//	BtLog.logOutPut("cosm = "+cosM);
-	
-		if (angleAMB > 170 && angleAMB < 185) {
-			mOrientationListener.bottom();
-		} else {
-
-			if (point2.x > 0) {
-				if (angleAMB > 0 && angleAMB < 20.0f) {
-					mOrientationListener.top();
-				} else if (angleAMB > 20.0f && angleAMB < 75.0f) {
-					mOrientationListener.topRight();
-				} else if (angleAMB >= 75.0f && angleAMB <= 100.0f) {
-					mOrientationListener.right();
-				} else if (angleAMB > 100.f && angleAMB <= 150.0f) {
-					mOrientationListener.bottomRight();
-				}
-			} else {
-				if (angleAMB > 120 && angleAMB < 150) {
-					mOrientationListener.bottomLeft();
-				}
-				else if(angleAMB>80 && angleAMB<120)
-				{
-					mOrientationListener.left();
-				}
-				else if(angleAMB>40 && angleAMB<80)
-				{
-					mOrientationListener.topLeft();
-				}
-			}
-		}*/
 	}
 	
+	public void back(int x,int y)
+	{
+		tmpx = 0;
+		tmpy = 0;
+		invalidate();
+	}
+
+	public void back()
+	{
+		tmpx = 0;		
+		BtLog.logOutPut("tmpy = "+tmpy);
+		
+		invalidate();
+	}
 }

@@ -135,16 +135,16 @@
                 android:layout_marginTop="15dp" >
 
                 <SeekBar
-                    android:id="@+id/chanel_3"
+                    android:id="@+id/chanel_1"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
-                    android:max="100"
+                    android:max="2"
                     android:minHeight="0dp"
                     android:minWidth="0dp"
-                    android:progress="50" />
+                    android:progress="1" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -162,7 +162,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/foot_news"
                     android:text="Menu" />
             </RelativeLayout>
         </LinearLayout>
@@ -179,16 +178,16 @@
                 android:layout_marginTop="15dp" >
 
                 <SeekBar
-                    android:id="@+id/chanel_4"
+                    android:id="@+id/chanel_3"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
-                    android:max="100"
+                    android:max="2"
                     android:minHeight="0dp"
                     android:minWidth="0dp"
-                    android:progress="50" />
+                    android:progress="1" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
@@ -229,12 +228,12 @@
                 android:layout_weight="5" >
 
                 <com.video.planecontrol.VerticalSeekBar
-                    android:id="@+id/chanel_1"
+                    android:id="@+id/chanel_2"
                     android:layout_width="wrap_content"
                     android:layout_height="160dp"
                     android:layout_gravity="center"
-                    android:max="100"
-                    android:progress="50" />
+                    android:max="2"
+                    android:progress="1" />
             </LinearLayout>
         </LinearLayout>
 
@@ -250,12 +249,12 @@
                 android:layout_weight="5" >
 
                 <com.video.planecontrol.VerticalSeekBar
-                    android:id="@+id/chanel_2"
+                    android:id="@+id/chanel_4"
                     android:layout_width="wrap_content"
                     android:layout_height="160dp"
                     android:layout_gravity="center"
-                    android:max="100"
-                    android:progress="50" />
+                    android:max="2"
+                    android:progress="1" />
             </LinearLayout>
 
             <LinearLayout

@@ -38,7 +38,7 @@ public class MenuActivity  extends Activity implements OnCheckedChangeListener{
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.menu_layout);
 		
-	/*	m_toggle1 =(ToggleButton) findViewById(R.id.togglt_1);
+		m_toggle1 =(ToggleButton) findViewById(R.id.togglt_1);
 		m_toggle2 =(ToggleButton) findViewById(R.id.togglt_2);
 		m_toggle3 =(ToggleButton) findViewById(R.id.togglt_3);
 		m_toggle4 =(ToggleButton) findViewById(R.id.togglt_4);
@@ -68,7 +68,7 @@ public class MenuActivity  extends Activity implements OnCheckedChangeListener{
 				saveState();
 				finish();
 			}
-		});*/
+		});
 		
 	}
 	
@@ -82,7 +82,7 @@ public class MenuActivity  extends Activity implements OnCheckedChangeListener{
 	
 	public void setState()
 	{
-		/*SharedPreferences preferences = getApplicationContext().getSharedPreferences("model", 0);
+		SharedPreferences preferences = getApplicationContext().getSharedPreferences("model", 0);
 		m_toggle1.setChecked(preferences.getBoolean("toggle1", false));
 		m_toggle2.setChecked(preferences.getBoolean("toggle2", false));
 		m_toggle3.setChecked(preferences.getBoolean("toggle3", false));
@@ -92,11 +92,11 @@ public class MenuActivity  extends Activity implements OnCheckedChangeListener{
 		m_toggle7.setChecked(preferences.getBoolean("toggle7", false));
 		m_toggle8.setChecked(preferences.getBoolean("toggle8", false));
 		m_toggle9.setChecked(preferences.getBoolean("toggle9", false));
-		*/
+		
 	}
 	
 	public void saveState()
-	{/*
+	{
 		SharedPreferences preferences = getApplicationContext().getSharedPreferences("model", 0);
 		Editor editor= preferences.edit();
 		editor.putBoolean("toggle1", m_toggle1.isChecked());
@@ -108,7 +108,7 @@ public class MenuActivity  extends Activity implements OnCheckedChangeListener{
 		editor.putBoolean("toggle7", m_toggle7.isChecked());
 		editor.putBoolean("toggle8", m_toggle8.isChecked());
 		editor.putBoolean("toggle9", m_toggle9.isChecked());
-		editor.commit();*/
+		editor.commit();
 	}
 
 	@Override
