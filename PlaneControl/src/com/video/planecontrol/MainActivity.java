@@ -26,6 +26,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.os.Build;
 
@@ -49,6 +50,10 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	private int m_chanel2Value = 50;
 	private int m_chanel4Value = 50;
 	private int m_chanel3Value = 50;
+	private Timer testTimer = null;
+	
+	private TextView testText = null;
+	private Handler testHandler = null;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -196,6 +201,23 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 				checkRightValue();
 			}
 		});
+        
+        testText = (TextView) findViewById(R.id.testText);
+        
+        testHandler = new Handler()
+        {
+        	@Override
+        	public void handleMessage(Message msg) {
+        		// TODO Auto-generated method stub
+        		super.handleMessage(msg);
+        		
+        		BtLog.logOutPut(""+msg.arg1);
+        		testText.setText(String.valueOf( msg.arg1));
+        	
+        		
+        	}
+        };
+        
     }
 
     public void checkLeftValue()
@@ -222,6 +244,9 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		
 		m_chanel1Value = 50+m_chanel1Value/2;
 		m_chanel2Value = 50+m_chanel2Value/2;
+		
+		BtLog.logOutPut("m_chanel1Value = "+m_chanel1Value);
+	//	BtLog.logOutPut("m_chanel2Value = "+m_chanel2Value);
 		
 		sendData();
 		
@@ -327,6 +352,12 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			mTimer.cancel();
 			mTimer = null;
 		}
+		
+		if(testTimer!=null)
+		{
+			testTimer.cancel();
+			testTimer = null;
+		}
 	}
 	
 	public class MyThread extends Thread {
@@ -345,6 +376,23 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 				
 				ReceiverThread thread = new ReceiverThread(socket);
 				thread.start();
+				
+				testTimer = new Timer();
+				testTimer.schedule(new TimerTask() {
+					
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+					//	testText.setText(String.valueOf(socket.getValue()));
+						
+						Message msg = new Message();
+						msg.arg1 = socket.getValue();
+						
+						testHandler.sendMessage(msg);
+						
+					}
+				}, 5000,2000);
+				
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

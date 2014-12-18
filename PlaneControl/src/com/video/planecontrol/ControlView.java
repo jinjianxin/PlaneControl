@@ -104,8 +104,9 @@ public class ControlView extends View {
 
 		Point topPoint1 = new Point(this.getWidth() / 2 +bgHeight, this.getHeight()
 				/ 2);
-		canvas.drawLine(centerPoint.x,centerPoint.y , topPoint.x	, topPoint.y, paint);
-		canvas.drawLine(centerPoint.x,centerPoint.y , topPoint1.x	, topPoint1.y, paint);
+		
+		//canvas.drawLine(centerPoint.x,centerPoint.y , topPoint.x	, topPoint.y, paint);
+		//canvas.drawLine(centerPoint.x,centerPoint.y , topPoint1.x	, topPoint1.y, paint);
 		
 	}
 

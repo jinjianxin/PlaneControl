@@ -3,12 +3,14 @@ package com.video.planecontrol;
 import java.io.*;
 import java.net.*;
 
+import android.R.integer;
+
 public class UdpClientSocket {
     private byte[] buffer = new byte[1024];
 
     private DatagramSocket ds = null;
-
-
+    private int mValue = 0;
+   
     public UdpClientSocket() throws Exception {
         ds = new DatagramSocket();
     }
@@ -63,8 +65,16 @@ public class UdpClientSocket {
 			}
 			
 		//	BtLog.logOutPut(info);
-			//BtLog.logOutPut("iOutcome="+iOutcome);
+		//	BtLog.logOutPut("iOutcome="+iOutcome);
+			
+			mValue = iOutcome;
 		}
+	
+    }
+    
+    public int getValue()
+    {
+    	return mValue;
     }
 
 
