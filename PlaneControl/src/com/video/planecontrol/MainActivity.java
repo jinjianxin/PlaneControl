@@ -66,35 +66,17 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	private Boolean m_check8Value = false;
 	private Boolean m_check9Value = false;
 
-	// private Timer testTimer = null;
-	// private TextView testText = null;
-	// private Handler testHandler = null;
+	 private Timer testTimer = null;
+	 private TextView testText = null;
+	 private Handler testHandler = null;
+	 
+	 private int count = 0; 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
-
-		/*
-		m_chanel_1 = (VerticalSeekBar) findViewById(R.id.chanel_1);
-		m_chanel_2 = (VerticalSeekBar) findViewById(R.id.chanel_2);
-
-		m_chanel_3 = (SeekBar) findViewById(R.id.chanel_3);
-		m_chanel_4 = (SeekBar) findViewById(R.id.chanel_4);
-		m_chanel_5 = (SeekBar) findViewById(R.id.chanel_5);
-		m_chanel_6 = (SeekBar) findViewById(R.id.chanel_6);
-		m_chanel_7 = (SeekBar) findViewById(R.id.chanel_7);
-		m_chanel_8 = (SeekBar) findViewById(R.id.chanel_8);
-
-		m_chanel_1.setOnSeekBarChangeListener(this);
-		m_chanel_2.setOnSeekBarChangeListener(this);
-		m_chanel_3.setOnSeekBarChangeListener(this);
-		m_chanel_4.setOnSeekBarChangeListener(this);
-		m_chanel_5.setOnSeekBarChangeListener(this);
-		m_chanel_6.setOnSeekBarChangeListener(this);
-		m_chanel_7.setOnSeekBarChangeListener(this);
-		m_chanel_8.setOnSeekBarChangeListener(this);*/
 		
 		m_chanel_1 = (SeekBar) findViewById(R.id.chanel_1);
 		m_chanel_1.setOnSeekBarChangeListener(this);
@@ -104,6 +86,19 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		m_chanel_3.setOnSeekBarChangeListener(this);
 		m_chanel_4 =(SeekBar) findViewById(R.id.chanel_4);
 		m_chanel_4.setOnSeekBarChangeListener(this);
+		
+		testText = (TextView) findViewById(R.id.testText);
+	/*	testHandler = new Handler()
+		{
+			@Override
+			public void handleMessage(Message msg) {
+				// TODO Auto-generated method stub
+				super.handleMessage(msg);
+				
+				
+				
+			}
+		};*/
 
 		m_leftControl = (ControlView) findViewById(R.id.left_control);
 
@@ -113,12 +108,40 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			public void back() {
 
 				// TODO Auto-generated method stub
-				m_chanel1Value = 50;
+	/*			m_chanel1Value = 50;
 				m_chanel2Value = 50;
 
 				checkLeftValue();
 				
-				m_leftControl.back(0,0);
+				m_leftControl.back(0,0);*/
+			
+				count = 0;
+				testText.setText(String.valueOf(0));
+				
+				if(m_chanel1Value>34 && m_chanel1Value<38)
+				{
+					if(m_check9Value)
+					{
+						m_leftControl.back();	
+					}
+					else
+					{
+						m_leftControl.back(0,0);
+					}
+					
+				}
+				else
+				{
+					m_leftControl.back(0,0);
+				}
+			
+				
+				m_chanel4Value = 50;
+				m_chanel3Value = 50;
+
+				
+				checkRightValue();			
+				
 
 			}
 
@@ -169,6 +192,11 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 					}
 				}
 
+				count++;
+				BtLog.logOutPut("count = "+count);
+				
+				testText.setText(String.valueOf(count));
+				
 				checkLeftValue();
 
 			}
@@ -196,13 +224,20 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			@Override
 			public void back() {
 				// TODO Auto-generated method stub
-				
+/*				
 				BtLog.logOutPut("m_chane41Value ="+m_chanel4Value);
-				BtLog.logOutPut("m_chane31Value ="+m_chanel3Value);
+				BtLog.logOutPut("m_chane31Value ="+m_chanel3Value);*/
 				
 				if(m_chanel3Value>34 && m_chanel3Value<38)
 				{
-					m_rightControl.back();
+					if(!m_check9Value)
+					{
+						m_rightControl.back();
+					}
+					else
+					{
+						m_rightControl.back(0,0);
+					}
 				}
 				else
 				{

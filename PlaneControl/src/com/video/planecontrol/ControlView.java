@@ -77,13 +77,6 @@ public class ControlView extends View {
 		canvas.drawBitmap(b, this.getWidth() / 2 - bgWidth, this.getHeight()
 				/ 2 - bgHeight, paint);
 
-		/*
-		 * paint.setStyle(Paint.Style.STROKE); paint.setStrokeWidth(5);
-		 * 
-		 * canvas.drawCircle(this.getWidth() / 2 , this.getHeight() / 2, 200,
-		 * paint);
-		 */
-
 		Bitmap controlBitmap = BitmapFactory.decodeResource(getResources(),
 				R.drawable.movepoint);
 
@@ -191,7 +184,7 @@ public class ControlView extends View {
 	public void back()
 	{
 		tmpx = 0;		
-		BtLog.logOutPut("tmpy = "+tmpy);
+	//	BtLog.logOutPut("tmpy = "+tmpy);
 		
 		invalidate();
 	}
