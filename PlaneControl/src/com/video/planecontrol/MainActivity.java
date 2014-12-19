@@ -43,18 +43,23 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	private SeekBar m_chanel_8 = null;
 	private Handler m_handler = null;
 
+	
+	private int mbaseNumber = 25;
+	private float mCoefficient = 1.0f;
+	
 	private ControlView m_leftControl = null;
 	private ControlView m_rightControl = null;
 	private Timer mTimer = null;
 	private Button m_menu = null;
-	private int m_chanel1Value = 34;
-	private int m_chanel2Value = 34;
-	private int m_chanel4Value = 34;
-	private int m_chanel3Value = 34;
-	private int m_chanel5Value = 34;
-	private int m_chanel6Value = 34;
-	private int m_chanel7Value = 34;
-	private int m_chanel8Value = 34;
+	private int m_chanel1Value = 75;
+	private int m_chanel2Value = 75;
+	private int m_chanel4Value = 75;
+	private int m_chanel3Value = 75;
+	private int m_chanel5Value = 75;
+	private int m_chanel6Value = 75;
+	private int m_chanel7Value = 75;
+	private int m_chanel8Value = 75;
+	
 
 	private Boolean m_check1Value = false;
 	private Boolean m_check2Value = false;
@@ -67,10 +72,12 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	private Boolean m_check9Value = false;
 
 	 private Timer testTimer = null;
-	 private TextView testText = null;
+	 //private TextView testText = null;
 	 private Handler testHandler = null;
 	 
 	 private int count = 0; 
+	 
+	 private Timer msendTimer = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -87,18 +94,16 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		m_chanel_4 =(SeekBar) findViewById(R.id.chanel_4);
 		m_chanel_4.setOnSeekBarChangeListener(this);
 		
-		testText = (TextView) findViewById(R.id.testText);
-	/*	testHandler = new Handler()
-		{
-			@Override
-			public void handleMessage(Message msg) {
-				// TODO Auto-generated method stub
-				super.handleMessage(msg);
-				
-				
-				
-			}
-		};*/
+		m_chanel_5 =(SeekBar) findViewById(R.id.chanel_5);
+		m_chanel_5.setOnSeekBarChangeListener(this);
+		m_chanel_6 =(SeekBar) findViewById(R.id.chanel_6);
+		m_chanel_6.setOnSeekBarChangeListener(this);
+		m_chanel_7 =(SeekBar) findViewById(R.id.chanel_7);
+		m_chanel_7.setOnSeekBarChangeListener(this);
+		m_chanel_8 =(SeekBar) findViewById(R.id.chanel_8);
+		m_chanel_8.setOnSeekBarChangeListener(this);
+		
+	//	testText = (TextView) findViewById(R.id.testText);
 
 		m_leftControl = (ControlView) findViewById(R.id.left_control);
 
@@ -108,15 +113,9 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			public void back() {
 
 				// TODO Auto-generated method stub
-	/*			m_chanel1Value = 50;
-				m_chanel2Value = 50;
-
-				checkLeftValue();
-				
-				m_leftControl.back(0,0);*/
 			
-				count = 0;
-				testText.setText(String.valueOf(0));
+			//	count = 0;
+		//		testText.setText(String.valueOf(0));
 				
 				if(m_chanel1Value>34 && m_chanel1Value<38)
 				{
@@ -138,11 +137,6 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 				
 				m_chanel4Value = 50;
 				m_chanel3Value = 50;
-
-				
-				checkRightValue();			
-				
-
 			}
 
 			@Override
@@ -155,7 +149,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 					} else {
 						m_chanel2Value = (int) (50 - Math.abs(y) * 0.2);
 					}
-
+					
 					if (x < 0) {
 						if (!m_check1Value) {
 							m_chanel1Value = (int) (50 + Math.abs(x) * 0.2);
@@ -168,11 +162,11 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 						} else {
 							m_chanel1Value = (int) (50 + Math.abs(x) * 0.2);
 						}
-					}
+					} 
 
 				} else {
 					if (!m_check2Value) {
-						m_chanel2Value = (int) (50 - Math.abs(y) * 0.2);
+						m_chanel2Value = (int) (50- Math.abs(y) * 0.2);
 					} else {
 						m_chanel2Value = (int) (50 + Math.abs(y) * 0.2);
 					}
@@ -192,10 +186,8 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 					}
 				}
 
-				count++;
-				BtLog.logOutPut("count = "+count);
-				
-				testText.setText(String.valueOf(count));
+				count++;		
+			//	testText.setText(String.valueOf(count));
 				
 				checkLeftValue();
 
@@ -224,20 +216,9 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			@Override
 			public void back() {
 				// TODO Auto-generated method stub
-/*				
-				BtLog.logOutPut("m_chane41Value ="+m_chanel4Value);
-				BtLog.logOutPut("m_chane31Value ="+m_chanel3Value);*/
-				
-				if(m_chanel3Value>34 && m_chanel3Value<38)
+				if(!m_check9Value)
 				{
-					if(!m_check9Value)
-					{
-						m_rightControl.back();
-					}
-					else
-					{
-						m_rightControl.back(0,0);
-					}
+					m_rightControl.back();
 				}
 				else
 				{
@@ -308,6 +289,9 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	}
 
 	public void checkLeftValue() {
+		
+	//	BtLog.logOutPut("m_chanel1Value = "+m_chanel1Value);
+		
 		if (m_chanel1Value >= 100) {
 			m_chanel1Value = 100;
 		}
@@ -324,10 +308,12 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			m_chanel2Value = 0;
 		}
 
-		m_chanel1Value = 25 + m_chanel1Value / 4;
-		m_chanel2Value = 25 + m_chanel2Value / 4;
+		m_chanel1Value = mbaseNumber + (int)(m_chanel1Value*mCoefficient );
+		m_chanel2Value = mbaseNumber + (int)(m_chanel2Value *mCoefficient);
 		
-		sendData();
+		BtLog.logOutPut("m_chanel1Value = "+m_chanel1Value);
+		
+	//	sendData();
 
 	}
 
@@ -348,14 +334,14 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		if (m_chanel3Value <= 0) {
 			m_chanel3Value = 0;
 		}
-		m_chanel3Value = 25 + m_chanel3Value / 4;
-		m_chanel4Value = 25 + m_chanel4Value / 4;
+		m_chanel3Value = mbaseNumber + (int)(m_chanel3Value*mCoefficient);
+		m_chanel4Value = mbaseNumber + (int)(m_chanel4Value *mCoefficient);
 
-		// BtLog.logOutPut("m_chanel3Value = "+m_chanel3Value);
-		// BtLog.logOutPut("m_chanel4Value = "+m_chanel4Value);
+	    BtLog.logOutPut("m_chanel3Value = "+m_chanel3Value);
+	  // BtLog.logOutPut("m_chanel4Value = "+m_chanel4Value);
 		
 
-		sendData();
+	//	sendData();
 	}
 
 	@Override
@@ -414,7 +400,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 				}
 			}
 			
-			checkLeftValue();
+		 checkLeftValue();
 		} else if (seekBar == m_chanel_3) {
 			
 			
@@ -473,53 +459,53 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		} else if (seekBar == m_chanel_5) {
 			if(!m_check5Value)
 			{
-				m_chanel5Value = 25 + progress * 25;
+				m_chanel5Value = mbaseNumber + progress * 25;
 			}
 			else
 			{
-				m_chanel5Value = 25 +(2-progress) * 25;
+				m_chanel5Value = mbaseNumber +(2-progress) * 25;
 			}
 			
-			sendData();
+			//sendData();
 			
 		} else if (seekBar == m_chanel_6) {
 
 			if(!m_check6Value)
 			{
-			m_chanel6Value = 25 + progress * 25;
+			m_chanel6Value = mbaseNumber + progress * 25;
 			}
 			else
 			{
-				m_chanel6Value = 25 + (2-progress) * 25;
+				m_chanel6Value = mbaseNumber + (2-progress) * 25;
 			}
 			
-			sendData();
+			//sendData();
 			
 		} else if (seekBar == m_chanel_7) {
 
 			if(!m_check7Value)
 			{
-				m_chanel7Value = 25 + progress / 4;
+				m_chanel7Value = mbaseNumber + progress / 2;
 			}
 			else
 			{
-				m_chanel7Value = 25 + (100- progress) / 4;
+				m_chanel7Value = mbaseNumber + (100- progress) / 2;
 			}
 			
-			sendData();
+		//	sendData();
 			
 		} else if (seekBar == m_chanel_8) {
 
 			if(!m_check8Value)
 			{
-				m_chanel8Value = 25 + progress / 4;
+				m_chanel8Value = mbaseNumber + progress / 2;
 			}
 			else
 			{
-				m_chanel8Value = 25 +(100- progress) / 4;
+				m_chanel8Value = mbaseNumber +(100- progress) / 2;
 			}
 
-			sendData();
+		//	sendData();
 		}
 	}
 
@@ -555,7 +541,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 					DecimalFormat dig = new DecimalFormat("000");
 
 					StringBuilder builder = new StringBuilder();
-					builder.append(dig.format(111) + dig.format(0)
+					builder.append(dig.format(222) + dig.format(0)
 							+ dig.format(0) + dig.format(0) + dig.format(0)
 							+ dig.format(0) + dig.format(0) + dig.format(0)
 							+ dig.format(0));
@@ -567,11 +553,21 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 					bundle.putString("value", builder.toString());
 					msg.setData(bundle);
 
-					m_handler.sendMessage(msg);
+					m_handler.sendMessage(msg); 
 				}
 			}
 		}, 0, 5000);
 
+		msendTimer = new Timer();
+		msendTimer.schedule(new TimerTask() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				sendData();
+			}
+		},100,20);
+		
 		getDefalutValue();
 	}
 
@@ -583,6 +579,12 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		if (mTimer != null) {
 			mTimer.cancel();
 			mTimer = null;
+		}
+		
+		if(msendTimer!=null)
+		{
+			msendTimer.cancel();
+			msendTimer = null;
 		}
 
 		/*
@@ -606,18 +608,6 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 
 				ReceiverThread thread = new ReceiverThread(socket);
 				thread.start();
-				/*
-				 * testTimer = new Timer(); testTimer.schedule(new TimerTask() {
-				 * 
-				 * @Override public void run() { // TODO Auto-generated method
-				 * stub // testText.setText(String.valueOf(socket.getValue()));
-				 * 
-				 * Message msg = new Message(); msg.arg1 = socket.getValue();
-				 * 
-				 * testHandler.sendMessage(msg);
-				 * 
-				 * } }, 5000,2000);
-				 */
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -700,6 +690,9 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	public void sendData() {
 
 		DecimalFormat dig = new DecimalFormat("000");
+		
+		//checkLeftValue();
+		//checkRightValue();
 
 		StringBuilder builder = new StringBuilder();
 		builder.append(dig.format(m_chanel1Value) + dig.format(m_chanel2Value)
@@ -710,7 +703,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		Message msg = new Message();
 		msg.arg1 = 1;
 		Bundle bundle = new Bundle();
-		// BtLog.logOutPut(builder.toString());
+	    BtLog.logOutPut("==="+builder.toString());
 		bundle.putString("value", builder.toString());
 		msg.setData(bundle);
 
@@ -722,6 +715,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		// TODO Auto-generated method stub
 		super.onRestart();
 		getDefalutValue();
+			
 	}
 	
 	public void getDefalutValue() {
